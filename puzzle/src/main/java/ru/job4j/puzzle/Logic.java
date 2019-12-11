@@ -72,15 +72,15 @@ public class Logic {
         int[][] table = this.convert();
         boolean result = false;
         for (int i = 0; i < table.length; i++) {
-            int rw = 0; // количество в рядах символа 'X'
-            int cw = 0; // количество в колонках символа 'Х'
+            int rw = 0; // количество в рядах символа '1'
+            int cw = 0; // количество в колонках символа '1'
             if (table[i][i] == 1) { // поиск возможных линий
                 for (int j = 0; j < table.length; j++) {
                     if (table[i][j] == 1) { // подсчет количества
-                        rw++;                 // символа 'X' в ряду
+                        rw++;                 // символа '1' в ряду
                     }
                     if (table[j][i] == 1) { // подсчет количества
-                        cw++;                 // символа 'X' в колонке
+                        cw++;                 // символа '1' в колонке
                     }
                 }
                 if (rw == table.length || cw == table.length) { // условие выигрыша
