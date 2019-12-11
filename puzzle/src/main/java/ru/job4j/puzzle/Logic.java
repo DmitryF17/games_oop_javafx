@@ -71,6 +71,25 @@ public class Logic {
     public boolean isWin() {
         int[][] table = this.convert();
         boolean result = false;
+        for (int i = 0; i < table.length; i++) {
+            int rw = 0; // количество в рядах символа 'X'
+            int cw = 0; // количество в колонках символа 'Х'
+            if (table[i][i] == 1) { // поиск возможных линий
+                for (int j = 0; j < table.length; j++) {
+                    if (table[i][j] == 1) { // подсчет количества
+                        rw++;                 // символа 'X' в ряду
+                    }
+                    if (table[j][i] == 1) { // подсчет количества
+                        cw++;                 // символа 'X' в колонке
+                    }
+                }
+                if (rw == table.length || cw == table.length) { // условие выигрыша
+                    result = true;
+                }
+                    break; // прерывание цикла при выполнении условия проигрыша
+
+            }
+        }
         return result;
     }
 
