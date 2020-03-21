@@ -1,8 +1,10 @@
 package job4j.tictactoe;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Logic3T {
     private final Figure3T[][] table;
@@ -46,7 +48,6 @@ public class Logic3T {
     }
 
     public boolean hasGap() {
-        return !(this.table.length * this.table.length == Arrays.stream(this.table).flatMap(Arrays::stream)
-                .takeWhile(s -> s.hasMarkO() || s.hasMarkX()).count());
+        return Arrays.stream(table).anyMatch(Objects::nonNull);
     }
 }
